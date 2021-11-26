@@ -1,3 +1,5 @@
+@import '../../style/vars';
+
 .satisfactionapp__tabs {
 
   width: 100%;
@@ -9,8 +11,11 @@
   }
 
   &__tab {
+    color: $font-grey;
+
     &.--active {
       border-bottom: 2px solid blue;
+      color: $font-dark;
     }
   }
 }

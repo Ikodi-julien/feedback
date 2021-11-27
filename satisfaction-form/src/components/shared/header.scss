@@ -1,7 +1,9 @@
 .satisfactionapp_header {
   width: 100%;
+  display: flex;
+  justify-content: center;
 
   & img {
-    width: 100%;
+    width: 70%;
   }
 }

@@ -9,9 +9,7 @@ const Tabs = ({activeTab}) => (
       <div className={`satisfactionapp__tabs__tab ${activeTab === 1 ? "--active" : ""}`}>Votre avis</div>
       <div className={`satisfactionapp__tabs__tab ${activeTab === 2 ? "--active" : ""}`}>Confirmation</div>
     </div>
-
   </div>
-
 </div>
 )
 

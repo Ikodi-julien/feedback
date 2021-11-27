@@ -2,6 +2,8 @@ import React from "react";
 import PropTypes from 'prop-types';
 import {Form} from 'react-final-form';
 import Tabs from '../shared/Tabs';
+import {Button, Divider} from 'semantic-ui-react';
+import './wizard.scss';
 
 export default class Wizard extends React.Component {
   
@@ -29,9 +31,12 @@ export default class Wizard extends React.Component {
       page: Math.max(state.page - 1, 0)
     }))
   
+  // setPage = (pageNb) => this.setState(state => ({
+  //   page: pageNb
+  // }))
+  
   validate = values => {
     const activePage = React.Children.toArray(this.props.children)[this.state.page];
-    
     return activePage.props.validate ? activePage.props.validate(values) : {}
   }
   
@@ -51,7 +56,7 @@ export default class Wizard extends React.Component {
     
     return (
       <section>
-        <Tabs activeTab={page}/>
+        <Tabs activeTab={page} />
         <Form 
           initialValues={values}
           validate={this.validate}
@@ -60,31 +65,41 @@ export default class Wizard extends React.Component {
         {({handleSubmit, submitting, values}) => (
             <form onSubmit={handleSubmit}>
               {activePage}
+              <Divider />
+              
+              {isLastPage && (
               <div>
+                <h3>Récapitulatif des données qui seront transmises :</h3>
+                <pre>{JSON.stringify(values, 0, 2)}</pre>
+                <Divider />
+              </div>)
+              }
+
+              <div className="buttons">
               {
                 page > 0 && (
-                  <button type="button" onClick={this.previous}>
+                  <Button type="button" onClick={this.previous}>
                   ← Précédent
-                  </button>
+                  </Button>
                 )
               }
               {
                 !isLastPage && (
-                  <button type="submit" >
+                  <Button type="submit" >
                     Suivant →
-                  </button>
+                  </Button>
                 )
               }
               {
                 isLastPage && (
-                  <button type="submit" disabled={submitting}>
+                  <Button type="submit" disabled={submitting}>
                     Envoyer
-                  </button>
+                  </Button>
                 )
               }
               </div>
-
-              <pre>{JSON.stringify(values, 0, 2)}</pre>
+              <p><em>Réponses modifiables tant que le formulaire n'est pas validé</em></p>
+              
             </form>
           )
         }

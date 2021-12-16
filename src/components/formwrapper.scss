@@ -1,4 +1,4 @@
-@import '../style/vars';
+@import "../style/vars";
 
 #root {
   position: absolute;
@@ -23,5 +23,10 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: $box-shadow;
+
+    @media screen and (max-width: 768px) {
+      margin: 50px 0;
+      padding: 0;
+    }
   }
 }

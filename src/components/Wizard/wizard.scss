@@ -36,7 +36,7 @@
     & .inputcolumn {
       display: flex;
       flex-direction: column;
-      margin-left: 50px;
+      margin: 50px;
     }
 
     & .input-error {
@@ -60,7 +60,7 @@
     & .rangerow {
       display: flex;
       font-size: 2em;
-      margin: 1.5em;
+      margin: 1.5em 0;
       margin-bottom: 2em;
 
       & input {
@@ -68,7 +68,11 @@
       }
 
       & .emoticon {
-        margin: 0 2em;
+        margin: 0 1em;
+
+        @media screen and (max-width: 768px) {
+          margin: 0 0.25em;
+        }
       }
     }
 

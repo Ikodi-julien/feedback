@@ -6,11 +6,8 @@ const Confirm = () => (
   <section className="satisfactionapp__confirm">
     <div className="satisfactionapp__confirm__wrapper">
       <Header />
-      <p>
-        Vos réponses ont bien été envoyées, merci pour votre participation et à
-        bientôt j’espère.
-      </p>
-      <a href="https://ikodi.eu">
+      <p>Merci pour votre participation et à bientôt j’espère.</p>
+      <a href="https://portfolio.ikodi.eu">
         <Button>Quitter</Button>
       </a>
     </div>

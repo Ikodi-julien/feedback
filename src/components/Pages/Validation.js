@@ -1,17 +1,15 @@
-import {Field} from 'react-final-form';
+import { Field } from "react-final-form";
 
-const Validation = ({showContact}) => (
+const Validation = ({ showContact }) => (
   <div>
-    <h3>Si vous le souhaitez vous pouvez transmettre vos coordonnées et un message avec vos réponses.</h3>
+    <h3>
+      Si vous le souhaitez vous pouvez transmettre vos coordonnées et un message
+      avec vos réponses.
+    </h3>
     <div className="inputcolumn">
       <label>
         Nom :
-        <Field
-          name="name"
-          component="input"
-          type="text"
-          placeholder="Nom"
-          />
+        <Field name="name" component="input" type="text" placeholder="Nom" />
       </label>
       <label>
         Email :
@@ -20,7 +18,7 @@ const Validation = ({showContact}) => (
           component="input"
           type="email"
           placeholder="Email"
-          />
+        />
       </label>
     </div>
     <label>Message :</label>
@@ -29,9 +27,9 @@ const Validation = ({showContact}) => (
       component="textarea"
       placeholder="..."
       maxLength="500"
-      />
-    
-    { showContact && (
+    />
+
+    {showContact && (
       <div>
         <h3>Souhaitez-vous être recontacté(e) ?</h3>
         <div className="inputcolumn">
@@ -41,8 +39,8 @@ const Validation = ({showContact}) => (
               component="input"
               type="radio"
               value="true"
-              />
-              {' '}oui
+            />{" "}
+            oui
           </label>
           <label>
             <Field
@@ -50,12 +48,12 @@ const Validation = ({showContact}) => (
               component="input"
               type="radio"
               value="false"
-              />
-              {' '}non
+            />{" "}
+            non
           </label>
         </div>
-      </div>)
-    }
+      </div>
+    )}
   </div>
-)
+);
 export default Validation;

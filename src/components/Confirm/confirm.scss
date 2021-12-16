@@ -1,4 +1,4 @@
-@import '../../style/vars';
+@import "../../style/vars";
 
 .satisfactionapp__confirm {
   display: flex;
@@ -14,5 +14,16 @@
     padding: 20px;
     box-shadow: $box-shadow;
     border-radius: 10px;
+
+    & p {
+      padding: 1.5em;
+      font-size: 1.2em;
+    }
+
+    & a {
+      display: block;
+      text-align: right;
+      width: 100%;
+    }
   }
 }

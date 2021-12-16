@@ -20,7 +20,7 @@ const FormWrapper = () => {
       const response = await axios.post(
         `${
           process.env.NODE_ENV === "production"
-            ? "https://feedback.ikodi.eu"
+            ? "https://feedback.ikodi.eu/feedback"
             : "http://localhost:5555/feedback"
         }`,
         {

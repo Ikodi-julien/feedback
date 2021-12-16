@@ -17,9 +17,14 @@ const FormWrapper = () => {
 
   const onSubmit = async (values) => {
     try {
-      const response = await axios.post("http://localhost:5555/feedback", {
-        values,
-      });
+      const response = await axios.post(
+        `${(process.env.NODE_ENV = "production"
+          ? "https://feedback.ikodi.eu"
+          : "http://localhost:5555/feedback")}`,
+        {
+          values,
+        }
+      );
       window.alert(response.data.message);
     } catch (error) {
       window.alert(

@@ -1,7 +1,10 @@
+import { useEffect } from "react";
 import { Field } from "react-final-form";
 import Error from "../Error/Error";
 
 const Opinion = ({ showRate }) => {
+  useEffect(() => window.scrollTo(0, 0), []);
+
   return (
     <div>
       <h2>A quelles applications ou pages avez-vous jeté un oeil ?</h2>

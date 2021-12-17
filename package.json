@@ -27,7 +27,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dev": "pm2 start index.js --watch -- --port 5555",
-    "deploy": "git pull && npm i && npm run build && pm2 restart index.js --name 'feedback' -- NODE_ENV=production --port 5555"
+    "deploy": "git pull && npm i && npm run build && pm2 restart -f index.js --name 'feedback' -- NODE_ENV=production --port 5555"
   },
   "eslintConfig": {
     "extends": [

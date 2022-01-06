@@ -10,9 +10,13 @@
       text-align: left;
       margin-bottom: 1em;
     }
+    & h3 {
+      margin: 1rem 0;
+    }
 
     & em {
       font-size: 0.8em;
+      padding: 0 1.5em;
     }
 
     & label {
@@ -37,6 +41,9 @@
       display: flex;
       flex-direction: column;
       margin: 50px;
+      &.--nobottom {
+        margin-bottom: 0;
+      }
     }
 
     & .input-error {

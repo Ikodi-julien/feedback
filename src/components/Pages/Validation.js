@@ -43,7 +43,7 @@ const Validation = ({ showContact, isLoggued, email, nickname }) => {
       {showContact && (
         <div>
           <h3>Souhaitez-vous être recontacté(e) ?</h3>
-          <div className="inputcolumn">
+          <div className="inputcolumn --nobottom">
             <label>
               <Field
                 name="askContact"

@@ -67,16 +67,6 @@ export default class Wizard extends React.Component {
             <form onSubmit={handleSubmit}>
               <div className="inputwrapper">{activePage}</div>
               <hr />
-
-              {isLastPage && (
-                <div className="inputwrapper">
-                  {" "}
-                  <h3>Récapitulatif des données qui seront transmises :</h3>
-                  <pre>{JSON.stringify(values, 0, 2)}</pre>
-                  <hr />
-                </div>
-              )}
-
               <div className="buttons">
                 {page > 0 && (
                   <Button type="button" onClick={this.previous}>
@@ -95,6 +85,16 @@ export default class Wizard extends React.Component {
                   Réponses modifiables tant que le formulaire n'est pas validé
                 </em>
               </p>
+              <hr />
+
+              {isLastPage && (
+                <div className="inputwrapper">
+                  {" "}
+                  <h3>Récapitulatif des données qui seront transmises :</h3>
+                  <pre>{JSON.stringify(values, 0, 2)}</pre>
+                  <hr />
+                </div>
+              )}
             </form>
           )}
         </Form>

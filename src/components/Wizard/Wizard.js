@@ -22,17 +22,18 @@ export default class Wizard extends React.Component {
   next = (values) =>
     this.setState((state) => ({
       page: Math.min(state.page + 1, this.props.children.length - 1),
-      values,
+      // This is a trick to re render after user data fetch, it works so...
+      values: {
+        ...values,
+        name: this.props.initialValues.name,
+        email: this.props.initialValues.email,
+      },
     }));
 
   previous = () =>
     this.setState((state) => ({
       page: Math.max(state.page - 1, 0),
     }));
-
-  // setPage = (pageNb) => this.setState(state => ({
-  //   page: pageNb
-  // }))
 
   validate = (values) => {
     const activePage = React.Children.toArray(this.props.children)[

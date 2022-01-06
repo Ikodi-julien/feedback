@@ -12,10 +12,9 @@ import { AUTH_URL } from "../helpers/settings";
 const FormWrapper = () => {
   const [showRate, setShowRate] = useState(false);
   const [showContact, setShowContact] = useState(false);
-  const [email, setEmail] = useState("");
-  const [nickname, setNickname] = useState("");
+  const [initialValues, setInitialValues] = useState({ rate: "5" });
   const [isLoggued, setIsLoggued] = useState(false);
-  // const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+
   let navigate = useNavigate();
 
   const onSubmit = async (values) => {
@@ -50,30 +49,35 @@ const FormWrapper = () => {
         });
         console.log(response.data);
         if (response.data) {
-          setEmail(response.data.email);
-          setNickname(response.data.nickname);
+          setInitialValues({
+            ...initialValues,
+            name: response.data.nickname,
+            email: response.data.email,
+          });
           setIsLoggued(true);
         }
       } catch (error) {
         console.log(error);
+      } finally {
       }
     })();
 
-    return () => {
-      setEmail("");
-      setNickname("");
-      setIsLoggued(false);
-    };
+    // return () => {
+    //   setEmail("");
+    //   setNickname("");
+    //   setIsLoggued(false);
+    // };
   }, []);
 
   return (
     <div className="satisfactionapp">
       <div className="satisfactionapp__wrapper">
-        <Header isLoggued={isLoggued} email={email} nickname={nickname} />
-        <Wizard
-          initialValues={{ rate: "5", email, name: nickname }}
-          onSubmit={onSubmit}
-        >
+        <Header
+          isLoggued={isLoggued}
+          setIsLoggued={setIsLoggued}
+          nickname={initialValues.name}
+        />
+        <Wizard initialValues={initialValues} onSubmit={onSubmit}>
           <Wizard.Page
             validate={(values) => {
               const errors = {};
@@ -107,12 +111,7 @@ const FormWrapper = () => {
               if (!values.email) setShowContact(false);
             }}
           >
-            <Validation
-              showContact={showContact}
-              isLoggued={isLoggued}
-              email={email}
-              nickname={nickname}
-            />
+            <Validation showContact={showContact} isLoggued={isLoggued} />
           </Wizard.Page>
         </Wizard>
       </div>

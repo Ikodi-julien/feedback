@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Field } from "react-final-form";
 
-const Validation = ({ showContact }) => {
+const Validation = ({ showContact, isLoggued, email, nickname }) => {
   useEffect(() => window.scrollTo(0, 0), []);
 
   return (
@@ -13,7 +13,13 @@ const Validation = ({ showContact }) => {
       <div className="inputcolumn">
         <label>
           Nom :
-          <Field name="name" component="input" type="text" placeholder="Nom" />
+          <Field
+            name="name"
+            component="input"
+            type="text"
+            placeholder="Nom"
+            initialValue={isLoggued ? nickname : ""}
+          />
         </label>
         <label>
           Email :
@@ -22,6 +28,7 @@ const Validation = ({ showContact }) => {
             component="input"
             type="email"
             placeholder="Email"
+            initialValue={isLoggued ? email : ""}
           />
         </label>
       </div>

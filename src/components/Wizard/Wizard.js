@@ -93,7 +93,6 @@ export default class Wizard extends React.Component {
                   {" "}
                   <h3>Récapitulatif des données qui seront transmises :</h3>
                   <pre>{JSON.stringify(values, 0, 2)}</pre>
-                  <hr />
                 </div>
               )}
             </form>

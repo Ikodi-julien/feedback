@@ -1,29 +1,39 @@
 .satisfactionapp_header {
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
 
   & aside {
+    position: absolute;
+    width: fit-content;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     flex: 1;
-    // background-color: rgba(40, 40, 40, 0.1);
-    padding: 10px 0;
     border-radius: 5px;
+
+    &.open {
+      width: 100%;
+    }
     & .container {
       width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      background-color: rgba(40, 40, 40, 0.06);
+      padding-right: 1rem;
+      background-color: rgba(250, 250, 250, 0.9);
       border-radius: 5px;
+      font-size: 1.2em;
     }
-    & div {
+    & .icon {
       font-weight: bold;
       font-style: italic;
-      padding: 10px;
-      padding-right: 30px;
+      padding: 1rem;
+      top: 60px;
+      font-size: 1.5rem;
+      padding: 1rem;
+      cursor: pointer;
     }
   }
   & img {

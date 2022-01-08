@@ -6,14 +6,20 @@ import Error from "../Error/Error";
 const Landing = () => (
   <div>
     <h1>Questionnaire de satisfaction</h1>
-    <div className="subtitle">
-      <p>
+    <ul className="subtitle">
+      <li>
         <em>Concerne le portefolio et les applications Ikodi</em>
-      </p>
-      <p>
+      </li>
+      <li>
         <em>Durée: environ 2 minutes</em>
-      </p>
-    </div>
+      </li>
+      <li>
+        <em>
+          Optionnel : Connectez-vous avec un compte Ikodi pour pré-remplir vos
+          coordonnées (lien dans le menu).
+        </em>
+      </li>
+    </ul>
     <hr />
     <h2>Vous êtes:</h2>
     <div className="inputcolumn">

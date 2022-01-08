@@ -1,25 +1,24 @@
 import { useState } from "react";
 import Button from "../Button/Button";
-import { FaEllipsisV, FaTimesCircle } from "react-icons/fa";
+import { FaEllipsisV, FaTimes } from "react-icons/fa";
 import { AUTH_URL, AUTH_URL_FRONT } from "../../helpers/settings";
 import axios from "axios";
 
 const UserData = ({ nickname, isLoggued, setIsLoggued }) => {
-  const [asideOpen, setAside] = useState(true);
+  const [asideOpen, setAside] = useState(false);
 
   const handleLogout = () => {
     axios.post(`${AUTH_URL}/logout`, {}, { withCredentials: true });
     setIsLoggued(false);
   };
   return (
-    <aside>
+    <aside className={asideOpen ? "open" : ""}>
       {asideOpen ? (
         isLoggued ? (
           <div className="container">
-            <FaTimesCircle
-              onClick={() => setAside(!asideOpen)}
-              style={{ fontSize: "2em", margin: "0 1rem", cursor: "pointer" }}
-            />
+            <div onClick={() => setAside(!asideOpen)} className="icon">
+              <FaTimes />
+            </div>
             <div>Connecté en tant que {`${nickname}`}</div>
             <Button onClick={handleLogout} color="blue">
               Déconnexion
@@ -27,26 +26,16 @@ const UserData = ({ nickname, isLoggued, setIsLoggued }) => {
           </div>
         ) : (
           <div className="container">
-            <FaTimesCircle
-              onClick={() => setAside(!asideOpen)}
-              style={{ fontSize: "2em", margin: "0 1rem", cursor: "pointer" }}
-            />
+            <div onClick={() => setAside(!asideOpen)} className="icon">
+              <FaTimes />
+            </div>
             <a href={`${AUTH_URL_FRONT}?app=feedback`}>
               <Button color="blue">Connexion avec auth.ikodi.eu</Button>
             </a>
           </div>
         )
       ) : (
-        <div
-          onClick={() => setAside(!asideOpen)}
-          style={{
-            position: "absolute",
-            top: "60px",
-            fontSize: "1.5em",
-            padding: "1rem",
-            cursor: "pointer",
-          }}
-        >
+        <div onClick={() => setAside(!asideOpen)} className="icon">
           <FaEllipsisV />
         </div>
       )}

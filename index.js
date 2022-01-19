@@ -58,4 +58,7 @@ app.post("/feedback", async (req, res) => {
   }
 });
 
-app.listen(5555, () => console.log(`serveur feedback listening on port 5555`));
+const PORT = process.env.PORT || 5555;
+app.listen(PORT, () =>
+  console.log(`serveur feedback listening on port ${PORT}`)
+);

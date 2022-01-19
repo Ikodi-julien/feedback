@@ -7,3 +7,4 @@ services:
       - "6060:6060"
     environment:
       - PORT=6060
+      - EMAIL_PWD=${EMAIL_PWD}

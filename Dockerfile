@@ -1,6 +1,10 @@
-FROM node:16
+FROM node:16 AS builder
+
 WORKDIR /app
-COPY . ./
+COPY package.json .
+COPY package-lock.json /app
 RUN npm install --production
+COPY . ./
+
 RUN npm run build
-CMD ["npm", "start"]
+CMD ["node", "index.js"]

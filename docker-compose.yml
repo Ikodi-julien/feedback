@@ -1,0 +1,9 @@
+version: "3"
+services:
+  feedback:
+    build: .
+    image: ikodi/feedback
+    ports:
+      - "6060:6060"
+    environment:
+      - PORT=6060

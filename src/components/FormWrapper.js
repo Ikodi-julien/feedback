@@ -8,7 +8,6 @@ import Validation from "./Pages/Validation";
 import "./formwrapper.scss";
 import axios from "axios";
 import { AUTH_URL } from "../helpers/settings";
-import Footer from "./Footer/Footer";
 
 const FormWrapper = () => {
   const [showRate, setShowRate] = useState(false);
@@ -115,7 +114,6 @@ const FormWrapper = () => {
             <Validation showContact={showContact} isLoggued={isLoggued} />
           </Wizard.Page>
         </Wizard>
-        <Footer />
       </div>
     </div>
   );

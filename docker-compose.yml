@@ -4,7 +4,7 @@ services:
     build: .
     image: ikodi/feedback
     ports:
-      - "6060:6060"
+      - "5555:5555"
     environment:
-      - PORT=6060
+      - PORT=5555
       - EMAIL_PWD=${EMAIL_PWD}
